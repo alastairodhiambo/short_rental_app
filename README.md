@@ -1,4 +1,4 @@
-# Short_Rental_Platform
+# short_rental_app
 
 Short Term Rental Platform built with HTML (Handlebars.js), CSS (SASS), JS with Node.js and Express.js, MongoDB for Backend.
 
