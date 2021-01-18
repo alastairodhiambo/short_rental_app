@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.min.css" type="text/css" />
+</head>
+
+<body>
+    <section class="content">
+        {{#each data}}
+        <h2>
+            Welcome {{u_value}}
+        </h2>
+        {{/each}}
+        <div class="listing-link-wrapper">
+            <a href="/room_listing">Room Listing</a>
+        </div>
+
+        {{#if host}}
+        <p>To add to or edit the listings, scroll down on the current page.</p>
+        <div class="chevron">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        {{/if}}
+    </section>
+
+    {{#if host}}
+    <section class="content2">
+        <div class="formbox">
+            <h2>Add Room</h2>
+            <form action="/dashboard" method="POST" enctype="multipart/form-data">
+                <div>
+                    <label for="room_image">Upload Image</label>
+                    <input id="room_image" type="file" name="room_image" tabindex="1" required /><br />
+                    <p><img id="output" /></p>
+                </div>
+                <div>
+                    <i class="far fa-envelope"></i>
+                    <input id="name" type="text" name="name" placeholder="Room Name" tabindex="2" required /><br />
+                </div>
+                <div>
+                    <i class="far fa-user"></i>
+                    <input id="description" type="text" name="description" placeholder="Description" tabindex="3"
+                        required /><br />
+                </div>
+                <div>
+                    <br />
+                    <label for="location">Location:</label>
+                    <select name="location" id="location" required>
+                        <option value="Montreal">Montreal</option>
+                        <option value="Toronto">Toronto</option>
+                        <option value="Vancouver">Vancouver</option>
+                    </select>
+                    <br /><br />
+                </div>
+                <div>
+                    <i class="fas fa-key"></i>
+                    <input id="price" type="number" name="price" placeholder="Set Price" tabindex="5" min="0"
+                        required /><br />
+                </div>
+                <input type="text" name="id" value="" class="btn-link" hidden></input>
+                <div class="submit-wrapper">
+                    <input type="submit" value="Add Room" tabindex="6" />
+                </div>
+                <div>
+                    <p>{{ message }}</p>
+                </div>
+            </form>
+        </div>
+
+
+        <section id="content3">
+            {{#if hasRooms }} {{#each rooms}}
+            <div class="item-card-wrapper">
+                <form action="/edit_room" method="POST">
+                    <div class="item-card-image"><img alt="{{name}}" src="../images/{{filename}}">
+                        <p><span class="item-card-category">{{location}}</span><br>{{name}}, {{description}}<br><span
+                                class="item-card-price">${{price}} CAD/night<span></span></span></p>
+                    </div>
+                    <input type="text" name="id" value="{{_id}}" class="btn-link" hidden></input>
+                    <button type="submit" name="submit" value="submit" class="btn-link">Edit</button>
+                </form>
+            </div>
+            {{/each}} {{else}}
+            <p>
+                There are no rooms available
+            </p>
+            {{/if}}
+
+        </section>
+    </section>
+    {{/if}}
+
+</body>
+
+</html>

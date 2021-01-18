@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<body>
+    <link rel="stylesheet" href="css/room_description.min.css" type="text/css" />
+    <div class="content2">
+        <h2>{{room.name}}</h2>
+        <span>{{room.location}}</span>
+        <div>
+            <p><img id="output" src="../images/{{room.filename}}" /></p>
+        </div>
+        <div id="room-info-wrapper">
+            <div id="room-info">
+                <div id="admin-info-wrapper">
+                    <span>{{room.description}} hosted by {{room.host}}</span>
+                    {{!-- <div id="admin-pic">
+                        <img src="" />
+                    </div> --}}
+
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="specifics">
+                    <i class="fas fa-wifi"></i>
+                    <span class="specifics-header">Amenities for everyday living</span>
+                    <p>The host has equipped this place for long stays - kitchen, wifi, washer, and dryer
+                        included.
+                    </p>
+                </div>
+                <div class="specifics">
+                    <i class="far fa-calendar-times"></i>
+                    <span class="specifics-header">Free cancellation for 48 hours</span>
+                    <p>After that, cancel before the booking date and get a full refund, minus the first 30 days
+                        and
+                        the service fee.</p>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div>
+                    <p class="admin-message">I am happy to offer a loft that has WiFi as well as a great vibe.
+                    </p>
+                </div>
+            </div> {{!-- room-info --}}
+
+            {{#if user}}
+            <form action="/book_room" method="POST">
+                <div>
+                    <span><span class="bold-price">${{room.price}}</span>/night</span>
+                </div>
+                <div class="check-days">
+                    <div>
+                        <label for="check-in">Check in</label>
+                        <input id="check-in" type="date" name="check-in" tabindex="2" required />
+                    </div>
+
+                    <div>
+                        <label for="checkout">Check out</label>
+                        <input id="checkout" type="date" name="checkout" tabindex="3" required />
+                    </div>
+                    <script src="js/dateLimiter.js"></script>
+                    <script src="js/priceCalculation.js"></script>
+                </div>
+                <input type="text" name="id" value="{{room._id}}" class="btn-link" hidden></input>
+                <div class="submit-wrapper">
+                    <input type="submit" value="Book Room" tabindex="6" />
+                </div>
+                <p>You won't be charged yet.</p>
+                <span id="total-price">Total:</span>
+            </form>
+
+            {{else}}
+            <form action="/book_room" method="POST">
+                <div>
+                    <span><span class="bold-price">${{room.price}}</span>/night</span>
+                </div>
+                <span>To book a room,</span>
+                <input type="text" name="id" value="{{room._id}}" class="btn-link" hidden></input>
+                <div class="submit-wrapper">
+                    <input type="submit" value="Sign in" tabindex="6" />
+                </div>
+                <span>or</span>
+                <div class="submit-wrapper">
+                    <input type="submit" value="Register" tabindex="6" />
+                </div>
+            </form>
+            {{/if}}
+        </div> {{!-- room-info-wrapper --}}
+        <div>
+            <p>{{ message }}</p>
+        </div>
+    </div>
+</body>
+
+</html>

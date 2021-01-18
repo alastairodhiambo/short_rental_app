@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlBnB</title>
+  <link rel="stylesheet" href="css/main.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant&family=Inter&family=Roboto+Slab&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="hamburger-menu">
+      <nav>
+        <div class="menuToggle">
+          <input type="checkbox" />
+          <span class="menuToggle__span"></span>
+          <span class="menuToggle__span"></span>
+          <span class="menuToggle__span"></span>
+          <ul class="menuToggle__menu">
+            <li><a id="room_listing" href="/room_listing">Room Listing</a></li>
+            <li><a id="about" href="/sign_in">Sign In</a></li>
+            <li><a id="contact" href="/registration">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <a class="main-logo-tag" href=".">
+      <h1 id="main-logo">AlBnB</h1>
+    </a>
+
+    <div id="user-options">
+      <a href="/sign_in"><span>Sign In</span>
+        <i class="fas fa-user-circle"></i></a>
+      <span>or</span>
+      <a href="/registration"><span>Register</span></a>
+    </div>
+  </header>
+
+  <!-- Top Menu -->
+  <main>
+    {{{body}}}
+  </main>
+  <!-- footer -->
+  <footer>
+    <div id="footer-content">
+      <ul>
+        <li><a href=".">Home</a></li>
+        <li><a href="/room_listing">Room Listing</a></li>
+        <li><a href="/sign_in">Sign In</a></li>
+        <li><a href="/registration">Register</a></li>
+      </ul>
+      <div id="social-media">
+        <a href="https://www.instagram.com/" target="blank"><i class="fab fa-instagram sm-icon"></i></a>
+        <a href="https://www.twitter.com/" target="blank"><i class="fab fa-twitter sm-icon"></i></a>
+        <a href="https://www.facebook.com/" target="blank"><i class="fab fa-facebook sm-icon"></i></a>
+        <a href="https://www.tiktok.com/" target="blank"><i class="fab fa-tiktok sm-icon"></i></a>
+      </div>
+      <div id="copyright">&copy; 2020 AlBnB</div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Room Listing</title>
+    <link rel="stylesheet" href="css/room_listing.min.css" type="text/css" />
+</head>
+
+<body>
+    <h2>Room Listings: {{location}}</h2>
+    <section id="content">
+        {{#if hasRooms }} {{#each rooms}}
+        <a href="#">
+            <div class="item-card-wrapper">
+                <form action="/room_description" method="POST">
+                    <div class="item-card-image"><img alt="{{name}}" src="../images/{{filename}}">
+                        <p><span class="item-card-category">{{location}}</span><br>{{name}}, {{description}}<br><span
+                                class="item-card-price">${{price}} CAD/night<span></span></span></p>
+                    </div>
+                    <input type="text" name="id" value="{{_id}}" class="btn-link" hidden></input>
+                    <button type="submit" name="submit" value="submit" class="btn-link"></button>
+                </form>
+            </div>
+        </a>
+        {{/each}} {{else}}
+        <p>
+            There are no rooms available
+        </p>
+        {{/if}}
+    </section>
+</body>
+
+</html>

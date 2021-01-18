@@ -1,0 +1,140 @@
+@import './resets';
+@import './variables';
+
+.content {
+    display: grid;
+    justify-items: center;
+    background: $pink-red;
+
+    .promo {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        background: url('../images/banner2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        display: grid;
+        .formbox {
+            justify-self: center;
+            align-self: start;
+            margin-top: 15px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 80vw;
+            box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.5);
+
+            form {
+                padding: 5px;
+                display: grid;
+                justify-content: center;
+                justify-self: center;
+                width: 350px;
+                max-width: 70vw;
+
+                div {
+                    margin: 2.5px 0;
+                    width: 350px;
+                    max-width: 70vw;
+                }
+
+                label {
+                    font-size: 0.8em;
+                    font-weight: 700;
+                }
+
+                .check-days {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 5px;
+                    border-radius: 5px;
+                    border: 1px solid grey;
+                }
+
+                select {
+                    width: 100%;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        #banner-text {
+            position: absolute;
+            bottom: 75px;
+            left: 40px;
+
+            color: white;
+            font-size: 5vmax;
+            text-shadow: 5px 5px 20px black;
+        }
+    }
+
+    .info {
+        justify-self: center;
+        width: 80vw;
+        max-width: 1100px;
+        background: $pink-red;
+
+        padding: 30px 0;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        #video-section {
+            width: 100%;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%;
+            background: black;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+        }
+
+        div {
+            background: white;
+            border-radius: 20px;
+            width: 275px;
+            height: 275px;
+            max-width: 75vw;
+            margin: 15px;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .info-text {
+            padding: 30px;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+    }
+
+    .search {
+        input {
+            background: $pink-red;
+            color: white;
+            font-weight: 800;
+            border: none;
+        }
+    }
+}

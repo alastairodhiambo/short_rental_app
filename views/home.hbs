@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/home.min.css" type="text/css" />
+</head>
+
+<body>
+    <section class="content">
+        <section class="promo">
+            <div class="formbox">
+                <h2>Book an amazing place to stay.</h2>
+                <form action="/room_listing" method="POST">
+                    <div>
+                        <br />
+                        <label for="location">Location:</label>
+                        <select name="location" id="location" required>
+                            <option value="Montreal">Montreal</option>
+                            <option value="Toronto">Toronto</option>
+                            <option value="Vancouver">Vancouver</option>
+                        </select>
+                        <br /><br />
+                    </div>
+                    <div class="check-days">
+                        <div>
+                            <label for="check-in">Check in</label>
+                            <input id="check-in" type="date" name="check-in" tabindex="2" required />
+                        </div>
+
+                        <div>
+                            <label for="email">Check out</label>
+                            <input id="checkout" type="date" name="checkout" tabindex="3" required />
+                        </div>
+                    </div>
+                    <script src="js/dateLimiter.js"></script>
+
+                    <div><label for="guests">Guests</label>
+                        <input id="guests" type="number" min="1" max="8" name="guests" tabindex="4" placeholder="1-8"
+                            required />
+                    </div>
+                    <div class="search"><input type="submit" value="Search" tabindex="5" /></div>
+
+                </form>
+            </div>
+            <h2 id="banner-text">Your home away from home.</h2>
+        </section>
+        <section class="info">
+            <div class="info-text">
+                <p>AlBnB is the platform you have been looking for. No need to stay at the hotel. Enjoy your home away
+                    from home. Browse the listings and join the platform to book a place!</p>
+            </div>
+            <div>
+                <img src="../images/house2.jpg" alt="Modern Patio" />
+            </div>
+            <div>
+                <img src="../images/house4.jpg" alt="New Home" />
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>

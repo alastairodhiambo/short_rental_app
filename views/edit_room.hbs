@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Room</title>
+    <link rel="stylesheet" href="css/edit_room.min.css" type="text/css" />
+</head>
+
+<body>
+    <div class="content2">
+        <a href="/dashboard">Back to dashboard</a>
+        <div class="formbox">
+            <h2>Edit Room</h2>
+            <form action="/dashboard" method="POST" enctype="multipart/form-data">
+                <div>
+                    <label for="room_image">Upload Image</label>
+                    <input id="room_image" type="file" name="room_image" tabindex="1" required value="{{room.image}}"
+                        accept="image/*" onchange="loadFile(event)" /><br />
+                    <p><img id="output" src="../images/{{room.filename}}" /></p>
+                    <script>
+                        let loadFile = function (event) {
+                            let image = document.getElementById('output');
+                            image.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                    </script>
+                </div>
+                <div>
+                    <i class="far fa-envelope"></i>
+                    <input id="name" type="text" name="name" placeholder="Room Name" tabindex="2" required
+                        value="{{room.name}}" /><br />
+                </div>
+                <div>
+                    <i class="far fa-user"></i>
+                    <input id="description" type="text" name="description" placeholder="Description" tabindex="3"
+                        required value="{{room.description}}" /><br />
+                </div>
+                <div>
+                    <br />
+                    <label for="location">Location:</label>
+                    <select name="location" id="location" required value="{{room.location}}">
+                        <option value="Montreal">Montreal</option>
+                        <option value="Toronto">Toronto</option>
+                        <option value="Vancouver">Vancouver</option>
+                    </select>
+                    <br /><br />
+                </div>
+                <div>
+                    <i class="fas fa-key"></i>
+                    <input id="price" type="number" name="price" placeholder="Set Price" tabindex="5" min="0" required
+                        value="{{room.price}}" /><br />
+                </div>
+                <input type="text" name="id" value="{{room._id}}" class="btn-link" hidden></input>
+                <div class="submit-wrapper">
+                    <input type="submit" name="submit" value="Save Changes" tabindex="6" />
+                </div>
+                <div>
+                    <p>{{ message }}</p>
+                </div>
+            </form>
+            <form action="/dashboard" method="POST" enctype="multipart/form-data">
+                <input type="text" name="id" value="{{room._id}}" class="btn-link" hidden></input>
+                <div class="submit-wrapper">
+                    <input type="submit" name="submit" value="Delete Room" tabindex="6" style="background:red;" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

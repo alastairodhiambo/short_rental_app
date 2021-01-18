@@ -1,0 +1,9 @@
+# Runtime data
+*.env
+
+# Formatting
+*.prettierignore
+*.eslintrc.json
+
+# Dependency directories
+node_modules/

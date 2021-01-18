@@ -1,0 +1,73 @@
+@import './resets';
+@import './variables';
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: $direction;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#content {
+    @include flexCenter(row);
+    z-index: 5;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+.item-card-wrapper {
+    padding: 10px;
+    position: relative;
+
+    .btn-link {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        height: 361px;
+        width: 300px;
+        border: none;
+        background: transparent;
+    }
+}
+
+.item-card-image {
+    position: relative;
+    max-width: 300px;
+    height: auto;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    p {
+        font-size: 15px;
+        border: 1px transparent;
+        padding: 0px 5px;
+        border-radius: 2px;
+    }
+
+    .item-card-category {
+        font-weight: 700;
+        font-size: 0.8em;
+    }
+
+    .item-card-price {
+        font-style: italic;
+        font-size: 0.9em;
+    }
+}

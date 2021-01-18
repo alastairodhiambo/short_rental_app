@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="css/registration.min.css" type="text/css" />
+</head>
+
+<body>
+    <section class="content">
+        <div class="formbox">
+            {{#each data}}
+            <h2>User Registration</h2>
+            <form action="/register-user" method="POST">
+                <p class="error">{{email}}</p>
+                <div>
+                    <i class="far fa-envelope"></i>
+                    <input id="email" type="text" name="email" placeholder="Email address" value="{{e_value}}"
+                        tabindex="1" /><br />
+                </div>
+                <p class="error">{{firstname}}</p>
+                <div>
+                    <i class="far fa-user"></i>
+                    <input id="firstname" type="text" name="firstname" placeholder="First name" value="{{fname_value}}"
+                        tabindex="2" /><br />
+                </div>
+                <p class="error">{{lastname}}</p>
+                <div>
+
+                    <i class="far fa-user"></i>
+                    <input id="lastname" type="text" name="lastname" placeholder="Last name" value="{{lname_value}}"
+                        tabindex="3" /><br />
+                </div>
+                <p class="error">{{password}}</p>
+                <div>
+
+                    <i class="fas fa-key"></i>
+                    <input id="password" type="password" name="password" placeholder="Create a Password"
+                        tabindex="4" /><br />
+                </div>
+
+                <div>
+                    <label for="adminRadio" class="adminLabel">
+                        <input type="checkbox" id="adminRadio" name="adminCheck" value="yes">
+                        <span>Administrator</span>
+                    </label>
+                </div>
+
+                <div class="birthday-wrapper">
+                    <label for="birthday">Birthday</label>
+                    <p>To sign up, you need to be at least 18. Other people who use AlBnB won't see your birthday.</p>
+                    <p class="error">{{birthday}}</p>
+                    <input id="birthday" type="date" name="birthday" tabindex="6" /><br />
+                </div>
+                <div class="submit-wrapper">
+                    <p>We'll send you marketing promotions, special offers, inspiration, and policy updates via email.
+                    </p>
+                    <input type="submit" value="Sign Up" tabindex="7" />
+                </div>
+            </form>
+            {{/each}}
+        </div>
+
+        <script>
+            let today = new Date().toISOString().substr(0, 10);
+            document.querySelector("#birthday").max = today;
+        </script>
+    </section>
+</body>
+
+</html>

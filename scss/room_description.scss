@@ -1,0 +1,119 @@
+@import './resets';
+@import './variables';
+
+.content2 {
+    padding: 20px 20px 0 20px;
+    display: grid;
+    justify-content: center;
+
+    #output {
+        width: 300px;
+        height: 300px;
+    }
+
+    #room-info-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        #room-info {
+            padding-right: 20px;
+
+            #admin-info-wrapper {
+                display: grid;
+                grid-template-columns: auto auto;
+
+                #admin-pic {
+                    justify-self: end;
+                    background: grey;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                }
+            }
+
+            .specifics {
+                position: relative;
+                padding: 10px 0 10px 30px;
+                i {
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                }
+
+                .specifics-header {
+                    font-weight: bold;
+                }
+
+                p {
+                    font-size: 0.8em;
+                    color: grey;
+                }
+            }
+
+            .admin-message {
+                font-size: 0.85em;
+            }
+        }
+
+        form {
+            margin-top: 15px;
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 300px;
+            width: 90%;
+            box-shadow: 0 2.5px 15px 0px rgba(0, 0, 0, 0.5);
+            display: grid;
+            justify-items: center;
+
+            .bold-price {
+                font-weight: bold;
+            }
+
+            .check-days {
+                display: grid;
+
+                div {
+                    padding: 5px;
+                    display: grid;
+                    justify-items: space-between;
+                }
+            }
+        }
+    }
+}
+
+.submit-wrapper {
+    margin: 5px 0;
+
+    p {
+        font-size: 0.8em;
+    }
+
+    input {
+        background: $pink-red;
+        color: white;
+        font-weight: 800;
+        border: none;
+        padding: 15px !important;
+    }
+}
+
+#user-book-options {
+    a {
+        border-radius: 20px;
+        border: 1px solid grey;
+        padding: 5px;
+        font-size: 0.9em;
+
+        &:hover {
+            color: white;
+            background: $pink-red;
+        }
+    }
+}
+
+.error {
+    background: rgb(255, 255, 104);
+    font-size: 0.8em;
+    font-style: italic;
+}

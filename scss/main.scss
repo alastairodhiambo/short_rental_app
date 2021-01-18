@@ -1,0 +1,260 @@
+@import './resets';
+@import './variables';
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    background-color: white;
+    margin: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        color: $pink-red;
+    }
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    padding: 10px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    color: black;
+    background-color: white;
+    font-size: 1.1em;
+    box-shadow: 0 -5px 20px 5px rgba(0, 0, 0, 0.5);
+
+    .hamburger-menu {
+        justify-self: start;
+    }
+
+    #user-options {
+        justify-self: end;
+
+        a {
+            border-radius: 20px;
+            border: 1px solid grey;
+            padding: 5px;
+            font-size: 0.9em;
+
+            &:hover {
+                color: white;
+                background: $pink-red;
+            }
+        }
+    }
+}
+
+main {
+    margin-top: 65.6px;
+}
+
+/* Hamburger Menu */
+.menuToggle {
+    display: block;
+    position: relative;
+    top: 5px;
+    left: 15px;
+
+    z-index: 11;
+
+    -webkit-user-select: none;
+    user-select: none;
+
+    a {
+        text-decoration: none;
+        color: #232323;
+
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: $midday-yellow;
+    }
+
+    input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+
+        cursor: pointer;
+
+        opacity: 0; /* hide this */
+        z-index: 11; /* and place it over the hamburger */
+
+        -webkit-touch-callout: none;
+    }
+
+    &:hover {
+        span {
+            background: $pink-red;
+        }
+    }
+
+    #{&}__span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+
+        background: $jet;
+        border-radius: 3px;
+
+        z-index: 10;
+
+        transform-origin: 4px 0px;
+
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+            background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+
+        &:first-child {
+            transform-origin: 0% 0%;
+        }
+
+        &:nth-last-child(2) {
+            transform-origin: 0% 100%;
+        }
+    }
+    /* 
+    * Transform all the slices of hamburger
+    * into a crossmark.
+    */
+    input:checked ~ #{&}__span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: white;
+
+        /*
+    * Hiding the middle one.
+    */
+        &:nth-last-child(3) {
+            opacity: 0;
+            transform: rotate(0deg) scale(0.2, 0.2);
+        }
+
+        /*
+    * last one going in the other direction
+    */
+        &:nth-last-child(2) {
+            transform: rotate(-45deg) translate(0, -1px);
+        }
+    }
+
+    /*
+    * slide it in from the left
+    */
+    input:checked ~ ul {
+        transform: none;
+    }
+    /*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+    #{&}__menu {
+        z-index: 9;
+        position: absolute;
+        left: -50px;
+        width: 200px;
+        margin: -100px 0 0 -50px;
+        padding: 50px;
+        padding-top: 125px;
+        padding-left: 75px;
+        box-shadow: 0 -5px 20px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+
+        background: $pink-red;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0);
+
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+        a {
+            color: white;
+
+            &:hover {
+                color: black;
+            }
+        }
+
+        li {
+            padding: 10px 0;
+            font-size: 22px;
+        }
+    }
+}
+
+/*----*/
+
+footer {
+    height: 150px;
+    color: var(--sky-blue);
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#footer-content {
+    flex: 3;
+    text-align: center;
+    padding-top: 40px;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        margin-bottom: 10px;
+
+        li {
+            padding: 5px;
+            text-decoration: underline;
+        }
+    }
+}
+
+#social-media {
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.sm-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+#copyright {
+    min-width: 300px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: $mobile) {
+    #user-options {
+        display: none;
+    }
+}
