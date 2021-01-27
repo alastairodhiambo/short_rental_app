@@ -13,18 +13,24 @@
         <a href="/dashboard">Back to dashboard</a>
         <div class="formbox">
             <h2>Edit Room</h2>
-            <form action="/dashboard" method="POST" enctype="multipart/form-data">
+            <form id="delete-btn" action="/dashboard" method="POST" enctype="multipart/form-data">
+                <input type="text" name="id" value="{{room._id}}" class="btn-link" hidden></input>
+                <div class="submit-wrapper">
+                    <input type="submit" name="submit" value="Delete Room" tabindex="6" style="background:red;" />
+                </div>
+            </form>
+            <form id="edit-form" action="/dashboard" method="POST" enctype="multipart/form-data">
                 <div>
-                    <label for="room_image">Upload Image</label>
-                    <input id="room_image" type="file" name="room_image" tabindex="1" required value="{{room.image}}"
-                        accept="image/*" onchange="loadFile(event)" /><br />
-                    <p><img id="output" src="../images/{{room.filename}}" /></p>
+                    <img id="output" src="../images/{{room.filename}}" />
                     <script>
                         let loadFile = function (event) {
                             let image = document.getElementById('output');
                             image.src = URL.createObjectURL(event.target.files[0]);
                         };
                     </script>
+                    <label for="room_image">Upload Image</label>
+                    <input id="room_image" type="file" name="room_image" tabindex="1" required value="{{room.image}}"
+                        accept="image/*" onchange="loadFile(event)" /><br />
                 </div>
                 <div>
                     <i class="far fa-envelope"></i>
@@ -57,12 +63,6 @@
                 </div>
                 <div>
                     <p>{{ message }}</p>
-                </div>
-            </form>
-            <form action="/dashboard" method="POST" enctype="multipart/form-data">
-                <input type="text" name="id" value="{{room._id}}" class="btn-link" hidden></input>
-                <div class="submit-wrapper">
-                    <input type="submit" name="submit" value="Delete Room" tabindex="6" style="background:red;" />
                 </div>
             </form>
         </div>

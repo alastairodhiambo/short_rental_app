@@ -4,14 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Welcome</title>
     <link rel="stylesheet" href="css/dashboard.min.css" type="text/css" />
 </head>
 
 <body>
+    <section class="content">
+        <h2>
+            Welcome {{user.firstname}} {{user.lastname}}
+        </h2>
+        <a class="listing-link-wrapper" href="/room_listing">
+            Room Listing
+        </a>
 
-    <section class="content2">
         {{#if host}}
+        <p>To add to or edit the listings, scroll down on the current page.</p>
+        <div class="chevron">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        {{/if}}
+    </section>
+
+    {{#if host}}
+    <section class="content2">
         <div class="formbox">
             <h2>Add Room</h2>
             <form action="/dashboard" method="POST" enctype="multipart/form-data">

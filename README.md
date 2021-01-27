@@ -26,6 +26,8 @@ AirB&B is a travel website that allows people to book rooms​ ​around the wor
 <a id="home"></a>
 ## Home
 
+- Allows users to search the room listings by inputting the various search criteria.
+
 <a id="room-listing"></a>
 ## Room Listing
 

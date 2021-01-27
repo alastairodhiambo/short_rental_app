@@ -13,10 +13,6 @@
             <div id="room-info">
                 <div id="admin-info-wrapper">
                     <span>{{room.description}} hosted by {{room.host}}</span>
-                    {{!-- <div id="admin-pic">
-                        <img src="" />
-                    </div> --}}
-
                 </div>
                 <br>
                 <hr>
@@ -38,10 +34,6 @@
                 <br>
                 <hr>
                 <br>
-                <div>
-                    <p class="admin-message">I am happy to offer a loft that has WiFi as well as a great vibe.
-                    </p>
-                </div>
             </div> {{!-- room-info --}}
 
             {{#if user}}
@@ -71,18 +63,18 @@
             </form>
 
             {{else}}
-            <form action="/book_room" method="POST">
+            <form action="/book_login" method="POST">
                 <div>
                     <span><span class="bold-price">${{room.price}}</span>/night</span>
                 </div>
                 <span>To book a room,</span>
                 <input type="text" name="id" value="{{room._id}}" class="btn-link" hidden></input>
                 <div class="submit-wrapper">
-                    <input type="submit" value="Sign in" tabindex="6" />
+                    <input type="submit" name="submit" value="Sign In" tabindex="6" />
                 </div>
                 <span>or</span>
                 <div class="submit-wrapper">
-                    <input type="submit" value="Register" tabindex="6" />
+                    <input type="submit" name="submit" value="Register" tabindex="6" />
                 </div>
             </form>
             {{/if}}

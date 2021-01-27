@@ -14,6 +14,9 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const clientSessions = require('client-sessions');
 
+// Dev
+require('dotenv').config();
+
 const RoomModel = require('./public/js/roomModel');
 const UserModel = require('./public/js/userModel');
 
@@ -161,15 +164,12 @@ app.post(
 );
 
 // ----- Sign In or Register to book and redirection -----
-app.post(
-    '/book_login',
-    urlencodedParser,
-    ensureLogin,
-    checkTopHeader,
-    (req, res) => {
-        // Sign up or login to book a room
-    }
-);
+app.post('/book_login', urlencodedParser, checkTopHeader, (req, res) => {
+    // Sign up or login to book a room
+    if (req.body.submit === 'Sign In') {
+        res.render('sign_in');
+    } else res.render('registration');
+});
 
 // Error messages
 const emptyError = 'Field below must not be empty';
@@ -264,7 +264,7 @@ app.post(
                         ? (req.session.host = true)
                         : (req.session.host = false);
 
-                    res.redirect('/dashboard');
+                    res.redirect('/welcome');
                 }
             });
         }
@@ -342,7 +342,7 @@ app.post(
 
                                 delete req.session.user.password;
 
-                                res.redirect('/dashboard');
+                                res.redirect('/welcome');
                             } else {
                                 errorData[0].username =
                                     'Username or password does not match.';
@@ -365,6 +365,30 @@ app.post(
         }
     }
 );
+
+// ----- Welcome User Page -----
+app.get('/welcome', ensureLogin, checkTopHeader, (req, res) => {
+    // Changes based on host or user
+    if (req.session.host) {
+        RoomModel.find(/* { host_username: req.session.user.username} */)
+            .lean()
+            .exec()
+            .then((rooms) => {
+                res.render('welcome', {
+                    data: userData,
+                    user: req.session.user,
+                    rooms: rooms,
+                    hasRooms: !!rooms.length,
+                    host: req.session.host,
+                });
+            });
+    } else {
+        res.render('welcome', {
+            user: req.session.user,
+            data: userData,
+        });
+    }
+});
 
 // ----- User Page -----
 app.get('/dashboard', ensureLogin, checkTopHeader, (req, res) => {
