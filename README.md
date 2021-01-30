@@ -1,12 +1,14 @@
 # short_rental_app
 
-Server-side rendered Short Term Rental Platform built with Node.js and Express.js. MongoDB is used for the Database. Handlebars.js is used for the templating engine, with SASS for styling and JS for minor extra functionality. Hosted on the Heroku Platform.
+- Server-side rendered Short Term Rental Platform built with Node.js and Express.js. 
+- MongoDB is used for the Database.
+- Handlebars.js is used for the templating engine, with SASS for styling and JS for minor extra functionality.
+- Hosted on the Heroku Platform.
 
 ## Website Link
 https://secure-stream-99879.herokuapp.com
 
 ## Contents
-- [Project Introduction](#project-intro)
 - [Pages](#pages)
   - [Home](#home)
   - [Room Listing](#room-listing)
