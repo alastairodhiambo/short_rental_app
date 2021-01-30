@@ -1,10 +1,6 @@
 # short_rental_app
 
-Short Term Rental Platform built with HTML (Handlebars.js), CSS (SASS), JS with Node.js and Express.js, MongoDB for Backend.
-
-### Course : Web Programming Tools and Frameworks
-
-This Assignment is one of six that is designed to give you practical experience in building Server-Side Web applications using Node.js and Express.
+Server-side rendered Short Term Rental Platform built with Node.js and Express.js. MongoDB is used for the Database. Handlebars.js is used for the templating engine, with SASS for styling and JS for minor extra functionality.
 
 ## Contents
 - [Project Introduction](#project-intro)
@@ -15,10 +11,6 @@ This Assignment is one of six that is designed to give you practical experience 
   - [Sign In](#sign-in)
   - [Dashboard](#dashboard)
   - [Room Description](#room-description)
-
-# Project Introdcution
-
-AirB&B is a travel website that allows people to book rooms​ ​around the world. You have been contracted as a Full Stack developer to emulate the AirB&B website.
 
 <a id="pages"></a>
 # Pages
@@ -31,14 +23,28 @@ AirB&B is a travel website that allows people to book rooms​ ​around the wor
 <a id="room-listing"></a>
 ## Room Listing
 
+- Lists all rooms available in the system.
+
 <a id="registration"></a>
 ## Registration
+
+- Allows a user to register for the platform.
+- Adds the user to the database after the input is validated.
 
 <a id="sign-in"></a>
 ## Sign In Form
 
+- Allows existing users to sign in using the information provided on the database during registration.
+- Authentication and Authorization are done using brycptjs and sessions.
+- UX is different based on the permissions of the user (host vs normal user).
+
 <a id="dashboard"></a>
 ## Dashboard
 
+- Welcome page and dashboard that contain the relevant rooms tied to a hosts account with the option to add, edit or delete a room.
+
 <a id="room-description"></a>
 ## Room Description
+
+- Contains extra relevant information for the particular room selected from the room listing.
+- Options on the page are different based on whether the user is logged in or not.
